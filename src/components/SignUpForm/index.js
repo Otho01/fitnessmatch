@@ -45,7 +45,8 @@ function SignUpForm() {
         })
   
         localStorage.setItem('token', data.token)
-        history.push('/coacheslist')
+        localStorage.setItem('userKind', data.userKind)
+        history.push('/profile')
         
       } catch(error){
         dispatch(changeError(error.response.data.error.errors.email.message))
@@ -108,7 +109,7 @@ function SignUpForm() {
           >
             Registrarme  
           </StyledButton>
-          <LoginText>¿Ya tienes una cuenta? <StyledLink to="/login">Inicia sesión</StyledLink></LoginText>
+          <LoginText>¿Ya tienes una cuenta? <StyledLink to="/login" >Inicia sesión</StyledLink></LoginText>
         </StyledSection>
         
       </StyledForm>

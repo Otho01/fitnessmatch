@@ -2,14 +2,18 @@ import { HeaderLink, StyledNav, StyledImage, HeaderButton, NavSection, LogoSecti
 import logo from '../../components/Images/Logo-fondoOscuro.png'
 import { useHistory } from 'react-router'
 import { Link } from 'react-router-dom'
+import { useDispatch } from 'react-redux'
 
 
 export function Header() {
   const history = useHistory()
-
+  const dispatch = useDispatch()
+  
   function handleClick() {
+    
+    dispatch({type: 'USER_LOGOUT'})
     localStorage.clear()
-    history.push('login')
+    history.push('/login')
   }
   const token = localStorage.getItem('token')
   return (
@@ -23,6 +27,7 @@ export function Header() {
         {!token && <HeaderLink to="/signup">Registrarse</HeaderLink>}
         {!token && <HeaderLink to="/login">Iniciar Sesión</HeaderLink>}
         {token && <HeaderLink to="/coacheslist">Entrenadores</HeaderLink>}
+        {token && <HeaderLink to="/profile">Mi perfil</HeaderLink>}
         {token && <HeaderButton type="button" onClick={handleClick}>Cerrar sesión</HeaderButton>}
       </NavSection>
     </StyledNav>

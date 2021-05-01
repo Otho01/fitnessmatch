@@ -6,7 +6,8 @@ export const StyledNav = styled.nav`
   flex-direction: column;
   justify-content: center;
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: 1fr 5fr;
+  width: 100%;
 `
 
 export const LogoSection = styled.section`
@@ -34,6 +35,7 @@ export const HeaderLink = styled(Link)`
   &:hover{
     cursor: pointer;
     color: #69B32D;
+    text-decoration: none;
   }
 `
 
